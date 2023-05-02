@@ -39,18 +39,6 @@ async def element_input_handler(message: Message, state: FSMContext):
     if element_name == '/start':
         await state.finish()
         await message.answer(f"Hurmatli {message.from_user.first_name}, Siz buyruqlardan birini tanlab tilni tanlang va element nomini yozing✏️Men shu element haqida ma'lumot beraman🤗",reply_markup=languages_keyboard)
-
-
-    else:
-        if language == "uz":
-            reply_text = search_data(element_name, lang=language)
-        else:
-            try:
-                await message.answer(search_data(element_name, lang=language)['about'])
-                reply_text = search_data(element_name, lang=language)['summary']
-            except:
-                reply_text = f"It's a pity😕 There is no information❌ about this {element_name} or you have made a syntax error."
-        await message.answer(reply_text)
     # Reply to the user based on their input
     if element_name == '/help':
         # End the conversation
